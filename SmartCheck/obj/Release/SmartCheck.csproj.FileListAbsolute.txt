@@ -1,0 +1,14 @@
+C:\10-UbLocal\20-UniBim\40-VisualStudio\GitHub\SmartCheck\SmartCheck\obj\Release\SmartCheck.g.resources
+C:\10-UbLocal\20-UniBim\40-VisualStudio\GitHub\SmartCheck\SmartCheck\obj\Release\SmartCheck.frmCheck.resources
+C:\10-UbLocal\20-UniBim\40-VisualStudio\GitHub\SmartCheck\SmartCheck\obj\Release\SmartCheck.frmAbout.resources
+C:\10-UbLocal\20-UniBim\40-VisualStudio\GitHub\SmartCheck\SmartCheck\obj\Release\SmartCheck.Resource1.resources
+C:\10-UbLocal\20-UniBim\40-VisualStudio\GitHub\SmartCheck\SmartCheck\obj\Release\SmartCheck.csproj.GenerateResource.cache
+C:\10-UbLocal\20-UniBim\40-VisualStudio\GitHub\SmartCheck\SmartCheck\obj\Release\SmartCheck.csproj.CoreCompileInputs.cache
+C:\10-UbLocal\20-UniBim\40-VisualStudio\GitHub\SmartCheck\SmartCheck\bin\Release\styles.css
+C:\10-UbLocal\20-UniBim\40-VisualStudio\GitHub\SmartCheck\SmartCheck\bin\Release\SmartCheck.addin
+C:\10-UbLocal\20-UniBim\40-VisualStudio\GitHub\SmartCheck\SmartCheck\bin\Release\SmartCheck.dll
+C:\10-UbLocal\20-UniBim\40-VisualStudio\GitHub\SmartCheck\SmartCheck\bin\Release\SmartCheck.pdb
+C:\10-UbLocal\20-UniBim\40-VisualStudio\GitHub\SmartCheck\SmartCheck\obj\Release\SmartCheck.csprojAssemblyReference.cache
+C:\10-UbLocal\20-UniBim\40-VisualStudio\GitHub\SmartCheck\SmartCheck\obj\Release\SmartCheck.csproj.CopyComplete
+C:\10-UbLocal\20-UniBim\40-VisualStudio\GitHub\SmartCheck\SmartCheck\obj\Release\SmartCheck.dll
+C:\10-UbLocal\20-UniBim\40-VisualStudio\GitHub\SmartCheck\SmartCheck\obj\Release\SmartCheck.pdb

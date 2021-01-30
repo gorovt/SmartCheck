@@ -1,0 +1,54 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*
+ * -- BASE STYLES --
+ * Most of these are inherited from Base, but I want to change a few.
+ */
+body {
+    line-height: 1.2em;
+	color: #333;
+    /*color: #7f8c8d;*/
+    font-size: 0.9em;
+	font-family: Arial;
+}
+
+table, td, th {
+	table-layout: fixed;/**/
+	font-size: 1em;
+	width: 100%;
+	border: 1px solid grey;
+	border-collapse:  collapse;/**/
+	padding: 0.5em;
+}
+.item {	
+	width: 30%;
+	vertical-align: top;
+}
+.content {
+	width: 70%;
+	vertical-align: top;
+}
+.description {
+	font-style: italic;
+	
+}
+h2 {
+	width: 100%;
+	padding: 0.5em; 	
+	border: 1px solid grey;
+	font-size: 1.1em;
+	
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+    color: #34495e;
+}
