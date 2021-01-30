@@ -5,12 +5,12 @@
 
  Smart Checks for Revit models
 
-## Requisitos
+## Requirements
 * Autodesk Revit 2018
 * Autodesk Revit 2019
 * Autodesk Revit 2020
 * Autodesk Revit 2021
 
-## Instalador
-Puedes descargar el instalador de la última versión en este link
+## Installer
+You can download the latest version installer at this link
 * https://github.com/gorovt/SmartCheck/releases
