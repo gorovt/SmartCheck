@@ -3,7 +3,7 @@
 
 <img src="Images/SmartCheck_Main.JPG" width="640" />
 
- Smart Checks for Revit models
+SmartCheck is a Revit addin that allows you to run a series of quality control tests on BIM models.
 
 ## Requirements
 * Autodesk Revit 2018
