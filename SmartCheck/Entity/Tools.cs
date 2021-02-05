@@ -34,7 +34,7 @@ namespace SmartCheck
     public abstract class Tools
     {
         public static string _title = "SmartCheck";
-        public static string _version = "ver 0.8";
+        public static string _version = "ver 0.8.5";
 
         public static List<Check> InitialList()
         {
@@ -42,86 +42,211 @@ namespace SmartCheck
             // GENERAL
             checks.Add(new Check("", "00GEN", "GENERAL:", "GENERAL", false, "", new List<Item>(), 0));
             // Model Size < 300 MB
-            checks.Add(new Check("1", "MODELSIZE", "Model size must be < 300 MB", "Model size must be < 300 MB",
+            checks.Add(new Check("0", "MODELSIZE", "Model size must be < 300 MB", "Model size must be < 300 MB",
                 false, "", new List<Item>(), 0));
             // # of Project Information filled
-            checks.Add(new Check("2", "PROJINFOFILLED", "Project Information parameters filled",
+            checks.Add(new Check("0", "PROJINFOFILLED", "Project Information parameters filled",
                 "List of Project Information parameters filled by usr", false, "", new List<Item>(), 0));
             // # of Project Information NO filled
-            checks.Add(new Check("3", "PROJINFONOFILLED", "Project Information parameters no filled",
+            checks.Add(new Check("0", "PROJINFONOFILLED", "Project Information parameters no filled",
                 "List of Project Information parameters no filled", false, "", new List<Item>(), 0));
             // Project Base Point != (0,0,0)
+            checks.Add(new Check("0", "BASENOZERO", "Project Base Point is (0;0;0)?",
+                "Project Base Point is the origin (0;0;0)?", false, "", new List<Item>(), 0));
             // Project Survey Point != (0,0,0)
+            checks.Add(new Check("0", "SURVEYNOZERO", "Project Survey Point is (0;0;0)?",
+                "Project Survey Point is the origin (0;0;0)?", false, "", new List<Item>(), 0));
             // REFERENCES
             checks.Add(new Check("", "00REF", "EXTERNAL REFERENCES:", "EXTERNAL REFERENCES", false, "", new List<Item>(), 0));
             // # of CAD Imports
-            checks.Add(new Check("4", "CADIMP", "CAD Imports", "Number of CAD imports", false, "", new List<Item>(), 0));
+            checks.Add(new Check("0", "CADIMP", "CAD Imports", "Number of CAD imports", false, "", new List<Item>(), 0));
             // # of CAD Links
-            checks.Add(new Check("5", "CADLINK", "CAD Links", "Number of CAD Links", false, "", new List<Item>(), 0));
+            checks.Add(new Check("0", "CADLINK", "CAD Links", "Number of CAD Links", false, "", new List<Item>(), 0));
             // # of Linked Revit files NO Pinned
-            checks.Add(new Check("6", "RVTLNKNOPINNED", "Linked Revit files NO pinned", "Number of Linked Revit files NO pinned",
+            checks.Add(new Check("0", "RVTLNKNOPINNED", "Linked Revit files NO pinned", "Number of Linked Revit files NO pinned",
                 false, "", new List<Item>(), 0));
             // VIEWS
             checks.Add(new Check("", "00VIEWS", "VIEWS:", "VIEWS", false, "", new List<Item>(), 0));
+            // # of Views that are placed in Sheets
+            checks.Add(new Check("0", "VIEWSINSHEETS", "Views that are placed in Sheets", 
+                "List of Views that are placed in Sheets", false, "", new List<Item>(), 0));
+            // # of Views that are placed in Sheets and don't have a template
+            checks.Add(new Check("0", "VIEWSINSHEETSNOTEMP", "Views placed in Sheets and without template",
+                "List of Views that are placed in Sheets and without template", false, "", new List<Item>(), 0));
+            // # of Views that are NOT placed in Sheets
+            checks.Add(new Check("0", "VIEWSNOSHEETS", "Views that are not placed in Sheets",
+                "List of Views that are not placed in Sheets", false, "", new List<Item>(), 0));
             // # of ViewTemplates IN USE
-            checks.Add(new Check("7", "VTINUSE", "View Templates in use", "Number of View Templates in use",
+            checks.Add(new Check("0", "VTINUSE", "View Templates in use", "Number of View Templates in use",
                 false, "", new List<Item>(), 0));
             // # of ViewTemplates NO USE
-            checks.Add(new Check("8", "VTNOUSE", "View Templates without using", "Number of View Templates without using",
+            checks.Add(new Check("0", "VTNOUSE", "View Templates without using", "Number of View Templates without using",
                 false, "", new List<Item>(), 0));
             // # of ViewFilters IN USE
-            checks.Add(new Check("9", "VFINUSE", "View Filters in use", "Number of View Filters in use",
+            checks.Add(new Check("0", "VFINUSE", "View Filters in use", "Number of View Filters in use",
                 false, "", new List<Item>(), 0));
             // # of ViewFilters NO USE
-            checks.Add(new Check("10", "VFNOUSE", "View Filters without using", "Number of View Filters without using",
+            checks.Add(new Check("0", "VFNOUSE", "View Filters without using", "Number of View Filters without using",
                 false, "", new List<Item>(), 0));
             // FAMILIES
             checks.Add(new Check("", "00FAMILIES", "FAMILIES:", "FAMILIES", false, "", new List<Item>(), 0));
             // WallTypes in Use
-            checks.Add(new Check("11", "WALLTYPEUSE", "Wall Types in use", "List of Wall Types in use",
+            checks.Add(new Check("0", "WALLTYPEUSE", "Wall Types in use", "List of Wall Types in use",
                 false, "", new List<Item>(), 0));
             // WallTypes without using 
-            checks.Add(new Check("12", "WALLTYPENOUSE", "Wall Types without using", "List of Wall Types without using",
+            checks.Add(new Check("0", "WALLTYPENOUSE", "Wall Types without using", "List of Wall Types without using",
                 false, "", new List<Item>(), 0));
             // FloorTypes in Use
-            checks.Add(new Check("13", "FLOORTYPEUSE", "Floor Types in use", "List of Floor Types in use",
+            checks.Add(new Check("0", "FLOORTYPEUSE", "Floor Types in use", "List of Floor Types in use",
                 false, "", new List<Item>(), 0));
             // FloorTypes without using 
-            checks.Add(new Check("14", "FLOORTYPENOUSE", "Floor Types without using", "List of Floor Types without using",
+            checks.Add(new Check("0", "FLOORTYPENOUSE", "Floor Types without using", "List of Floor Types without using",
                 false, "", new List<Item>(), 0));
             // FamilySymbols in Use
-            checks.Add(new Check("15", "SYMINUSE", "Loadable Families in use", "List of Loadable Families in use",
+            checks.Add(new Check("0", "SYMINUSE", "Loadable Families in use", "List of Loadable Families in use",
                 false, "", new List<Item>(), 0));
             // FamilySymbols in Use
-            checks.Add(new Check("16", "SYMNOUSE", "Loadable Families without using", "List of Loadable Families without using",
+            checks.Add(new Check("0", "SYMNOUSE", "Loadable Families without using", "List of Loadable Families without using",
                 false, "", new List<Item>(), 0));
             // FamilySymbols contains special characters
-            checks.Add(new Check("17", "SYMSPECIALCHAR", "Loadable Families contains special characters",
+            checks.Add(new Check("0", "SYMSPECIALCHAR", "Loadable Families contains special characters",
                 "Special Characters not allowed: @ $ % ^ < > / \\ "+ '"' + " : ; ? * | ,", false, "", new List<Item>(), 0));
             // TextNoteTypes in USE
-            checks.Add(new Check("18", "TXTINUSE", "TextNote Types in use", "List of TextNote Types in use", 
+            checks.Add(new Check("0", "TXTINUSE", "TextNote Types in use", "List of TextNote Types in use", 
                 false, "", new List<Item>(), 0));
             // TextNoteTypes without using
-            checks.Add(new Check("19", "TXTNOUSE", "TextNote Types without using", "List of TextNote Types without using",
+            checks.Add(new Check("0", "TXTNOUSE", "TextNote Types without using", "List of TextNote Types without using",
                 false, "", new List<Item>(), 0));
             // DiemsnionTypes in USE
-            checks.Add(new Check("20", "DIMINUSE", "Dimension Types in use", "List of Dimension Types in use",
+            checks.Add(new Check("0", "DIMINUSE", "Dimension Types in use", "List of Dimension Types in use",
                 false, "", new List<Item>(), 0));
             // DiemsnionTypes without using
-            checks.Add(new Check("21", "DIMNOUSE", "Dimension Types without using", "List of Dimension Types without using",
+            checks.Add(new Check("0", "DIMNOUSE", "Dimension Types without using", "List of Dimension Types without using",
                 false, "", new List<Item>(), 0));
             // # of Sheets parameters NO filled
             // SHEETS
             checks.Add(new Check("", "00SHEETS", "SHEETS:", "SHEETS", false, "", new List<Item>(), 0));
             // No Text or Lines in Sheets
-            checks.Add(new Check("22", "NODETINSHEETS", "No Text or Lines in Sheets",
+            checks.Add(new Check("0", "NODETINSHEETS", "No Text or Lines in Sheets",
                 "List of Text Notes and Detail Lines in Sheets", false, "", new List<Item>(), 0));
             // # of Generic Model families
-            
+
+            // Set the order
+            int order = 1;
+            foreach (Check chk in checks)
+            {
+                if (chk.order != "")
+                {
+                    chk.order = order.ToString();
+                    order++;
+                }
+            }
             return checks;
         }
 
         #region Get
+        /// <summary> Get a color name from his Id </summary>
+        public static string GetColorNameFromId(int colorId)
+        {
+            string name = "";
+            switch (colorId)
+            {
+                case 0: // Black
+                    name = "Black";
+                    break;
+                
+                case 255:
+                    name = "Red";
+                    break;
+                case 65280:
+                    name = "Green";
+                    break;
+                case 65535:
+                    name = "Yellow";
+                    break;
+                case 16711680: // Blue
+                    name = "Blue";
+                    break;
+                case 16711935:
+                    name = "Magenta";
+                    break;
+                case 16776960:
+                    name = "Cyan";
+                    break;
+                case 16777215:
+                    name = "White";
+                    break;
+                default:
+                    name = colorId.ToString();
+                    break;
+            }
+            return name;
+        }
+
+        /// <summary> Get the Project Base Point </summary>
+        public static BasePoint GetProjectBasePoint()
+        {
+            Document doc = Main._doc;
+            BasePoint point = null;
+            FilteredElementCollector col = new FilteredElementCollector(doc);
+            List<Element> elements = col.OfClass(typeof(BasePoint)).ToList();
+            foreach (Element elem in elements)
+            {
+                BasePoint bPoint = (BasePoint)elem;
+                if (!bPoint.IsShared)
+                {
+                    point = bPoint;
+                }
+            }
+            return point;
+        }
+
+        /// <summary> Get the Survey Point </summary>
+        public static BasePoint GetSurveyPoint()
+        {
+            Document doc = Main._doc;
+            BasePoint point = null;
+            FilteredElementCollector col = new FilteredElementCollector(doc);
+            List<Element> elements = col.OfClass(typeof(BasePoint)).ToList();
+            foreach (Element elem in elements)
+            {
+                BasePoint bPoint = (BasePoint)elem;
+                if (bPoint.IsShared)
+                {
+                    point = bPoint;
+                }
+            }
+            return point;
+        }
+
+        /// <summary> Verify if BasePoint is Zero (0,0,0) </summary>
+        public static bool BasePointIsOrigin(BasePoint bPoint)
+        {
+            bool isOrigin = false;
+            double ns = bPoint.get_Parameter(BuiltInParameter.BASEPOINT_NORTHSOUTH_PARAM).AsDouble();
+            double ew = bPoint.get_Parameter(BuiltInParameter.BASEPOINT_EASTWEST_PARAM).AsDouble();
+            double elev = bPoint.get_Parameter(BuiltInParameter.BASEPOINT_ELEVATION_PARAM).AsDouble();
+            if (ns == 0 && ew == 0 && elev == 0)
+            {
+                isOrigin = true;
+            }
+            return isOrigin;
+        }
+
+        /// <summary> Verify if SurveyPoint is Zero (0,0,0) </summary>
+        public static bool SurveyPointIsOrigin(BasePoint bPoint)
+        {
+            bool isOrigin = false;
+            double ns = bPoint.get_Parameter(BuiltInParameter.BASEPOINT_NORTHSOUTH_PARAM).AsDouble();
+            double ew = bPoint.get_Parameter(BuiltInParameter.BASEPOINT_EASTWEST_PARAM).AsDouble();
+            double elev = bPoint.get_Parameter(BuiltInParameter.BASEPOINT_ELEVATION_PARAM).AsDouble();
+            if (ns == 0 && ew == 0 && elev == 0)
+            {
+                isOrigin = true;
+            }
+            return isOrigin;
+        }
+
         /// <summary> Get the Lines in the Project: DetailLines, ModelLines, DetailArcs </summary>
         public static List<Element> GetLines()
         {
@@ -522,6 +647,106 @@ namespace SmartCheck
                 }
             }
             return lst;
+        }
+
+        /// <summary> Get All the Views that are placed in Sheets </summary>
+        public static List<Item> GetViewsPlacedInSheets()
+        {
+            Document doc = Main._doc;
+            List<ViewSheet> sheets = new List<ViewSheet>();
+            FilteredElementCollector col = new FilteredElementCollector(doc);
+            List<Element> elements = col.OfClass(typeof(ViewSheet)).ToList();
+            foreach (Element elem in elements)
+            {
+                ViewSheet sheet = elem as ViewSheet;
+                sheets.Add(sheet);
+            }
+            List<Item> placed = new List<Item>();
+            foreach (ViewSheet sheet in sheets)
+            {
+                List<ElementId> onSheet = sheet.GetAllPlacedViews().ToList();
+                foreach (ElementId viewId in onSheet)
+                {
+                    Element elem = doc.GetElement(viewId);
+                    View view = elem as View;
+                    Item itm = Item.ItemFromView(view);
+                    itm.result = "Placed: " + sheet.SheetNumber + " - " + sheet.Name;
+                    placed.Add(itm);
+                }
+            }
+            placed = placed.OrderBy(x => x.category).ThenBy(x => x.name).ToList();
+            return placed;
+        }
+
+        /// <summary> Get All the Views that are placed in Sheets and they don't have a template </summary>
+        public static List<Item> GetViewsPlacedInSheetsNoTemplate()
+        {
+            Document doc = Main._doc;
+            List<ViewSheet> sheets = new List<ViewSheet>();
+            FilteredElementCollector col = new FilteredElementCollector(doc);
+            List<Element> elements = col.OfClass(typeof(ViewSheet)).ToList();
+            foreach (Element elem in elements)
+            {
+                ViewSheet sheet = elem as ViewSheet;
+                sheets.Add(sheet);
+            }
+            List<Item> placed = new List<Item>();
+            foreach (ViewSheet sheet in sheets)
+            {
+                List<ElementId> onSheet = sheet.GetAllPlacedViews().ToList();
+                foreach (ElementId viewId in onSheet)
+                {
+                    Element elem = doc.GetElement(viewId);
+                    View view = elem as View;
+                    if (view.ViewTemplateId.IntegerValue == -1)
+                    {
+                        Item itm = Item.ItemFromView(view);
+                        itm.result = "Placed: " + sheet.SheetNumber + " - " + sheet.Name;
+                        placed.Add(itm);
+                    }
+                }
+            }
+            placed = placed.OrderBy(x => x.category).ThenBy(x => x.name).ToList();
+            return placed;
+        }
+
+        /// <summary> Get All the Views that are NOT placed in Sheets </summary>
+        public static List<View> GetViewsNoPlacedInSheets()
+        {
+            Document doc = Main._doc;
+            List<ViewSheet> sheets = new List<ViewSheet>();
+            FilteredElementCollector col = new FilteredElementCollector(doc);
+            List<Element> elements = col.OfClass(typeof(ViewSheet)).ToList();
+            foreach (Element elem in elements)
+            {
+                ViewSheet sheet = elem as ViewSheet;
+                sheets.Add(sheet);
+            }
+            List<View> placed = new List<View>();
+            foreach (ViewSheet sheet in sheets)
+            {
+                List<ElementId> onSheet = sheet.GetAllPlacedViews().ToList();
+                foreach (ElementId viewId in onSheet)
+                {
+                    Element elem = doc.GetElement(viewId);
+                    View view = elem as View;
+                    placed.Add(view);
+                }
+            }
+            List<View> notPlaced = new List<View>();
+            List<View> allViews = GetAllCanPrint();
+            foreach (View view in allViews)
+            {
+                if (view.ViewType != ViewType.DrawingSheet)
+                {
+                    if (!placed.Exists(x => x.Id.IntegerValue == view.Id.IntegerValue))
+                    {
+                        notPlaced.Add(view);
+                    }
+                }
+            }
+            notPlaced = notPlaced.OrderBy(x => x.ViewType.ToString()).ThenBy(x => x.Name).ToList();
+            return notPlaced;
         }
 
         /// <summary> Get All the ViewTemplates in the Project </summary>
@@ -958,11 +1183,25 @@ namespace SmartCheck
             // Dimension Types without using 
             Check chkDimensionTypesNoUse = Main.lstChecks.Find(x => x.code == "DIMNOUSE");
             TestDimensionTypesNoUse(chkDimensionTypesNoUse);
+            // Project Base Point != (0,0,0)
+            Check chkBasePointNoZero = Main.lstChecks.Find(x => x.code == "BASENOZERO");
+            TestBasePointNoZero(chkBasePointNoZero);
+            // Project Survey Point != (0,0,0)
+            Check chkSurveyPointNoZero = Main.lstChecks.Find(x => x.code == "SURVEYNOZERO");
+            TestSurveyPointNoZero(chkSurveyPointNoZero);
+            // Views that are placed in Sheets
+            Check chkViewsPlacedInSheets = Main.lstChecks.Find(x => x.code == "VIEWSINSHEETS");
+            TestViewsPlacedInSheets(chkViewsPlacedInSheets);
+            // Views that are placed in Sheets and without template
+            Check chkViewsPlacedInSheetsNoTemp = Main.lstChecks.Find(x => x.code == "VIEWSINSHEETSNOTEMP");
+            TestViewsPlacedInSheetsNoTemp(chkViewsPlacedInSheetsNoTemp);
+            // Views that are NOT placed in Sheets
+            Check chkViewsNotPlacedInSheets = Main.lstChecks.Find(x => x.code == "VIEWSNOSHEETS");
+            TestViewsNotPlacedInSheets(chkViewsNotPlacedInSheets);
             // Number of Texts IN Sheets
             // Number of Dimmensions IN Sheets
             // Number of Generic Model families
-            // Project Base Point != (0,0,0)
-            // Project Survey Point != (0,0,0)
+
 
             Frm.MessageBox.Show("All Tests completed successfully", _title, 
                 Frm.MessageBoxButtons.OK, Frm.MessageBoxIcon.Information);
@@ -1216,11 +1455,14 @@ namespace SmartCheck
         public static void TestTextNoteTypesInUse(Check check)
         {
             List<TextNoteType> inUse = GetTextNoteTypesInUse();
+            List<Item> items = new List<Item>();
             foreach (TextNoteType type in inUse)
             {
                 Item itm = Item.ItemFromTextNoteType(type);
-                check.items.Add(itm);
+                items.Add(itm);
             }
+            items = items.OrderBy(x => x.category).ThenBy(x => x.name).ToList();
+            check.items.AddRange(items);
             check.result = "#" + check.items.Count.ToString();
         }
 
@@ -1240,11 +1482,14 @@ namespace SmartCheck
         public static void TestDimensionTypesInUse(Check check)
         {
             List<DimensionType> inUse = GetDimensionTypesInUse();
+            List<Item> items = new List<Item>();
             foreach (DimensionType type in inUse)
             {
                 Item itm = Item.ItemFromDimensionType(type);
-                check.items.Add(itm);
+                items.Add(itm);
             }
+            items = items.OrderBy(x => x.category).ThenBy(x => x.name).ToList();
+            check.items.AddRange(items);
             check.result = "#" + check.items.Count.ToString();
         }
 
@@ -1252,9 +1497,77 @@ namespace SmartCheck
         public static void TestDimensionTypesNoUse(Check check)
         {
             List<DimensionType> noUsed = GetDimensionTypesNoUsed();
+            List<Item> items = new List<Item>();
             foreach (DimensionType type in noUsed)
             {
                 Item itm = Item.ItemFromDimensionType(type);
+                items.Add(itm);
+            }
+            items = items.OrderBy(x => x.category).ThenBy(x => x.name).ToList();
+            check.items.AddRange(items);
+            check.result = "#" + check.items.Count.ToString();
+        }
+
+        // Project Base Point is ZERO
+        public static void TestBasePointNoZero(Check check)
+        {
+            BasePoint bs = GetProjectBasePoint();
+            bool isZero = BasePointIsOrigin(bs);
+            Item itm = Item.ItemFromBasePoint(bs);
+            if (isZero)
+            {
+                itm.result = "IS ZERO";
+            }
+            else
+            {
+                itm.result = "IS NOT ZERO";
+            }
+            check.items.Add(itm);
+            check.result = isZero.ToString();
+        }
+
+        // Project Survey Point is ZERO
+        public static void TestSurveyPointNoZero(Check check)
+        {
+            BasePoint bs = GetSurveyPoint();
+            bool isZero = SurveyPointIsOrigin(bs);
+            Item itm = Item.ItemFromBasePoint(bs);
+            if (isZero)
+            {
+                itm.result = "IS ZERO";
+            }
+            else
+            {
+                itm.result = "IS NOT ZERO";
+            }
+            check.items.Add(itm);
+            check.result = isZero.ToString();
+        }
+
+        // Views that are placed in sheets
+        public static void TestViewsPlacedInSheets(Check check)
+        {
+            List<Item> placed = GetViewsPlacedInSheets();
+            check.items.AddRange(placed);
+            check.result = "#" + check.items.Count.ToString();
+        }
+
+        // Views that are placed in sheets and without template
+        public static void TestViewsPlacedInSheetsNoTemp(Check check)
+        {
+            List<Item> placed = GetViewsPlacedInSheetsNoTemplate();
+            check.items.AddRange(placed);
+            check.result = "#" + check.items.Count.ToString();
+        }
+
+        // Views that are NOT placed in sheets
+        public static void TestViewsNotPlacedInSheets(Check check)
+        {
+            List<View> notPlaced = GetViewsNoPlacedInSheets();
+            foreach (View view in notPlaced)
+            {
+                Item itm = Item.ItemFromView(view);
+                itm.result = "Not placed in Sheets";
                 check.items.Add(itm);
             }
             check.result = "#" + check.items.Count.ToString();

@@ -230,12 +230,30 @@ namespace SmartCheck
             item.result = "Font: " + font + " || FontSize: " + size;
             if (texto.get_Parameter(BuiltInParameter.TEXT_STYLE_BOLD).AsInteger() == 1)
             {
-                item.result += " BOLD";
+                item.result += " || BOLD";
             }
             if (texto.get_Parameter(BuiltInParameter.TEXT_STYLE_ITALIC).AsInteger() == 1)
             {
-                item.result += " ITALIC";
+                item.result += " || ITALIC";
             }
+            if (texto.get_Parameter(BuiltInParameter.TEXT_BOX_VISIBILITY).AsInteger() == 1)
+            {
+                item.result += " || with Box";
+            }
+            ElementId marcaId = texto.get_Parameter(BuiltInParameter.LEADER_ARROWHEAD).AsElementId();
+            Element marca = texto.Document.GetElement(marcaId);
+            string arrow = "";
+            if (marca == null)
+            {
+                arrow = "NO MARK";
+            }
+            else
+            {
+                arrow = marca.Name;
+            }
+            int color = texto.get_Parameter(BuiltInParameter.LINE_COLOR).AsInteger();
+            string colorName = Tools.GetColorNameFromId(color);
+            item.result += " || Mark: " + arrow + " || Color: " + colorName;
             return item;
         }
 
@@ -245,7 +263,12 @@ namespace SmartCheck
             Item item = new Item();
             item.id = dimm.Id.IntegerValue;
             item.name = dimm.Name;
-            item.category = "Dimension Type";
+            //DimensionStyleType dimStyle = dimm.StyleType;
+            item.category = dimm.StyleType.ToString();
+            if (dimm.StyleType == DimensionStyleType.Linear)
+            {
+                item.category += " || " + dimm.get_Parameter(BuiltInParameter.LINEAR_DIM_TYPE).AsValueString();
+            }
             string font = dimm.get_Parameter(BuiltInParameter.TEXT_FONT).AsString();
             string size = dimm.get_Parameter(BuiltInParameter.TEXT_SIZE).AsValueString();
             ElementId marcaId = dimm.get_Parameter(BuiltInParameter.DIM_LEADER_ARROWHEAD).AsElementId();
@@ -259,7 +282,20 @@ namespace SmartCheck
             {
                 arrow = marca.Name;
             }
-            item.result = "Font: " + font + " || FontSize: " + size + " || Mark: " + arrow;
+            int color = dimm.get_Parameter(BuiltInParameter.LINE_COLOR).AsInteger();
+            string colorName = Tools.GetColorNameFromId(color);
+            FormatOptions format = dimm.GetUnitsFormatOptions();
+            string unit = "";
+            if (format.UseDefault)
+            {
+                unit = "Default units";
+            }
+            else
+            {
+                unit = format.DisplayUnits.ToString();
+            }
+            item.result = "Font: " + font + " || FontSize: " + size + " || Mark: " + arrow + " || Color: " + colorName +
+                " || Units: " + unit;
             return item;
         }
 
@@ -298,7 +334,7 @@ namespace SmartCheck
         public static Item ItemFromBasePoint(BasePoint bPoint)
         {
             Item item = new Item();
-            item.id = 0;
+            item.id = bPoint.Id.IntegerValue;
             string ns = bPoint.get_Parameter(BuiltInParameter.BASEPOINT_NORTHSOUTH_PARAM).AsValueString();
             string ew = bPoint.get_Parameter(BuiltInParameter.BASEPOINT_EASTWEST_PARAM).AsValueString();
             string elev = bPoint.get_Parameter(BuiltInParameter.BASEPOINT_ELEVATION_PARAM).AsValueString();

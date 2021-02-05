@@ -59,6 +59,7 @@ namespace SmartCheck
             Tools.RunTests();
             this.btnExportSelected.Enabled = true;
             this.btnExportAll.Enabled = true;
+            this.btnOK.Enabled = false;
             this.Refresh();
         }
 

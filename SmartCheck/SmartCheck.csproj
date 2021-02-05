@@ -32,11 +32,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
-    <Reference Include="RevitAPI">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2016\RevitAPI.dll</HintPath>
+    <Reference Include="RevitAPI, Version=16.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2018\RevitAPI.dll</HintPath>
     </Reference>
-    <Reference Include="RevitAPIUI">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2016\RevitAPIUI.dll</HintPath>
+    <Reference Include="RevitAPIUI, Version=16.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2018\RevitAPIUI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -93,6 +95,9 @@
   <ItemGroup>
     <Resource Include="Resources\UniBim_logo_64.png" />
     <Resource Include="Resources\UniBim32.png" />
+    <Content Include="ChangeLog.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="styles.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
