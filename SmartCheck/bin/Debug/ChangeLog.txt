@@ -1,0 +1,35 @@
+﻿*******************************************************************************
+*                                                                             *
+*    Copyright (c) 2021 Luciano Gorosito <lucianogorosito@hotmail.com>        *
+*                                                                             *
+*    This file is part of SmartCheck                                          *
+*                                                                             *
+*    SmartCheck is free software: you can redistribute it and/or modify       *
+*    it under the terms of the GNU General Public License as published by     *
+*    the Free Software Foundation, either version 3 of the License, or        *
+*    (at your option) any later version.                                      *
+*                                                                             *
+*    SmartCheck is distributed in the hope that it will be useful,            *
+*    but WITHOUT ANY WARRANTY; without even the implied warranty of           *
+*    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            *
+*    GNU General Public License for more details.                             *
+*                                                                             *
+*    You should have received a copy of the GNU General Public License        *
+*    along with this program.  If not, see <https://www.gnu.org/licenses/>.   *
+*                                                                             *
+*******************************************************************************
+
+*** Version 0.8.6 ***
+	- Check fixed: CAD links fixed
+
+*** Version 0.8.5 ***
+	- Check added: Project Base point no zero
+	- Check added: Project Survey point no zero
+	- Check added: Views that are placed in Sheets
+	- Check added: Views placed in Sheets and without template
+	- Check added: Views that are NOT placed in Sheets
+	- Check modify: Text Styles added "with box" result
+	- Check modify: get color name from Text and Dimensions
+
+*** Version 0.8 ***
+	- Initial release

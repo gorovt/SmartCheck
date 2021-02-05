@@ -34,7 +34,7 @@ namespace SmartCheck
     public abstract class Tools
     {
         public static string _title = "SmartCheck";
-        public static string _version = "ver 0.8";
+        public static string _version = "ver 0.8.6";
 
         public static List<Check> InitialList()
         {
@@ -51,6 +51,8 @@ namespace SmartCheck
             checks.Add(new Check("3", "PROJINFONOFILLED", "Project Information parameters no filled",
                 "List of Project Information parameters no filled", false, "", new List<Item>(), 0));
             // Project Base Point != (0,0,0)
+            checks.Add(new Check("0", "BASENOZERO", "Project Base Point is (0;0;0)?",
+                "Project Base Point is the origin (0;0;0)?", false, "", new List<Item>(), 0));
             // Project Survey Point != (0,0,0)
             // REFERENCES
             checks.Add(new Check("", "00REF", "EXTERNAL REFERENCES:", "EXTERNAL REFERENCES", false, "", new List<Item>(), 0));
@@ -497,10 +499,7 @@ namespace SmartCheck
             foreach (Element elem in elements)
             {
                 ImportInstance import = elem as ImportInstance;
-                if (!import.IsLinked)
-                {
-                    imports.Add(import);
-                }
+                imports.Add(import);
             }
             return imports;
         }
@@ -1070,7 +1069,11 @@ namespace SmartCheck
         public static void TestModelSize(Check check)
         {
             double size = GetModelSize();
-            check.result = size.ToString("N1") + " MB";
+            string result = size.ToString("N1") + " MB";
+            Item itm = Item.ItemFromString(result, "Model Size");
+            itm.id = Main._doc.GetHashCode();
+            check.result = result;
+            check.items.Add(itm);
         }
 
         /// <summary> WallTypes Used in the model </summary>

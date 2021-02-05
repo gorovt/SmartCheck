@@ -121,7 +121,7 @@ namespace SmartCheck
         public static Item ItemFromWorkset(Workset work)
         {
             Item item = new Item();
-            item.id = 0;
+            item.id = work.Id.IntegerValue;
             item.name = work.Name;
             item.category = "Workset";
             return item;
@@ -131,7 +131,7 @@ namespace SmartCheck
         public static Item ItemFromFilledRegionType(FilledRegionType region)
         {
             Item item = new Item();
-            item.id = 0;
+            item.id = region.Id.IntegerValue;
             item.name = region.Name;
             item.category = "Filled Region";
             return item;
@@ -152,7 +152,7 @@ namespace SmartCheck
         {
             StringBuilder sb = new StringBuilder();
             Item item = new Item();
-            item.id = 0;
+            item.id = import.Id.IntegerValue;
             Parameter param = import.get_Parameter(BuiltInParameter.IMPORT_SYMBOL_NAME);
             item.name = param.AsString();
             if (import.IsLinked)
@@ -267,7 +267,7 @@ namespace SmartCheck
         public static Item ItemFromFamily(Family fam)
         {
             Item item = new Item();
-            item.id = 0;// fam.Id.IntegerValue;
+            item.id = fam.Id.IntegerValue;
             item.name = fam.Name;
             item.category = fam.FamilyCategory.Name;
             return item;
@@ -318,7 +318,7 @@ namespace SmartCheck
         public static Item ItemFromViewSchedule(ViewSchedule schedule)
         {
             Item item = new Item();
-            item.id = 0;
+            item.id = schedule.Id.IntegerValue;
             item.name = schedule.Name;
             item.category = schedule.ViewType.ToString();
             return item;
@@ -328,7 +328,7 @@ namespace SmartCheck
         public static Item ItemFromCategory(Category cat)
         {
             Item item = new Item();
-            item.id = 0;
+            item.id = cat.Id.IntegerValue;
             item.name = cat.Name;
             item.category = "Category";
             return item;
